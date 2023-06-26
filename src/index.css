@@ -1,8 +1,13 @@
+* {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
 .app {
   text-align: center;
 }
 
-button {
+button,
+input {
   background: #ffffff;
   font-family: inherit;
   padding: 0.6em 1.3em;

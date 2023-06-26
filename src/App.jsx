@@ -36,7 +36,7 @@ function App() {
           onChange={(ev) => setPasswordSize(ev.target.value)}
         />
       </div>
-      <hr />
+
       <button onClick={generatePassword}>Gerar Senha</button>
       <button onClick={copytoClipboard}>{copyText}</button>
       <div>{password}</div>

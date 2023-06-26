@@ -40,7 +40,7 @@ function App() {
         />
       </div>
 
-      {showInput ? (
+      {showInput && (
         <div>
           <label htmlFor="passwordSize">Tamanho:</label>
           <input
@@ -51,7 +51,7 @@ function App() {
             onChange={(ev) => setPasswordSize(ev.target.value)}
           />
         </div>
-      ) : null}
+      )}
 
       <button onClick={generatePassword}>
         Gerar Senha de {passSize} caracteres{' '}

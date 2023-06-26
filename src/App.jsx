@@ -3,7 +3,10 @@ import React, { useState, useTransition } from 'react';
 function App() {
   const [password, setPassword] = useState('');
   const [copyText, setCopyText] = useState('Copiar');
-  const [passwordSize, setPasswordSize] = useState(12);
+  const [passwordSize, setPasswordSize] = useState(1);
+  const [showInput, setShowInput] = useState(false);
+
+  const passSize = showInput ? passwordSize : 8;
 
   const generatePassword = () => {
     const charset =
@@ -18,6 +21,7 @@ function App() {
     setPassword(result);
     setCopyText('Copiar');
   };
+
   function copytoClipboard() {
     window.navigator.clipboard.writeText(password);
     setCopyText('Copiado!');
@@ -27,17 +31,31 @@ function App() {
     <div className="app">
       <h1>Gerador de senhas</h1>
       <div>
-        <label htmlFor="passwordSize">Tamanho:</label>
+        <label htmlFor="showInput"> Customizar tamanho: </label>
         <input
-          type="number"
-          id="passwordSize"
-          min={1}
-          value={passwordSize}
-          onChange={(ev) => setPasswordSize(ev.target.value)}
+          type="checkbox"
+          id="showInput"
+          value={showInput}
+          onChange={() => setShowInput((currentState) => !currentState)}
         />
       </div>
 
-      <button onClick={generatePassword}>Gerar Senha</button>
+      {showInput ? (
+        <div>
+          <label htmlFor="passwordSize">Tamanho:</label>
+          <input
+            type="number"
+            id="passwordSize"
+            min={1}
+            value={passwordSize}
+            onChange={(ev) => setPasswordSize(ev.target.value)}
+          />
+        </div>
+      ) : null}
+
+      <button onClick={generatePassword}>
+        Gerar Senha de {passSize} caracteres{' '}
+      </button>
       <button onClick={copytoClipboard}>{copyText}</button>
       <div>{password}</div>
     </div>

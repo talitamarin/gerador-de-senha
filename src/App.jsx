@@ -3,7 +3,7 @@ import React, { useState, useTransition } from 'react';
 function App() {
   const [password, setPassword] = useState('');
   const [copyText, setCopyText] = useState('Copiar');
-  const [passwordSize, setPasswordSize] = useState(1);
+  const [passwordSize, setPasswordSize] = useState(8);
   const [showInput, setShowInput] = useState(false);
 
   const passSize = showInput ? passwordSize : 8;
@@ -13,7 +13,7 @@ function App() {
       'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789<>:?,.~()_1234567890!*#@$%';
 
     let result = '';
-    for (let i = 0; i < passwordSize; i++) {
+    for (let i = 0; i < passSize; i++) {
       const randomIndex = Math.floor(Math.random() * charset.length);
       result += charset[randomIndex];
     }

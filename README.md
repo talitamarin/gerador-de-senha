@@ -16,6 +16,7 @@ Atualização em tempo real da visualização da senha conforme as configuraçõ
 Antes de iniciar, certifique-se de ter as seguintes ferramentas instaladas:
 
 Node.js: **https://nodejs.org**
+
 npm (gerenciador de pacotes do Node.js): **https://www.npmjs.com/get-npm**
 
 **Instalação**
